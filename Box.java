@@ -1,16 +1,21 @@
-class Box <T>
-{
-  private T element;
+package threads.comunication;
 
-  Box(){
-    //element = e;
-  }
-  void setElement(T e){
-    element = e;
-  }   
+import java.util.LinkedList;
 
-   T getElement(){
-    return element;
-  }   
-  
+public class Box {
+	int capacity;
+	LinkedList<Integer> list; 
+	public void put(int e)
+	{
+		if(list.size() < capacity)
+			list.add(e);
+	}
+	public int get()
+	{	
+		int e=0;
+		if(list.size() >0)
+			e = list.removeFirst();
+		return e;
+	}
+	
 }
