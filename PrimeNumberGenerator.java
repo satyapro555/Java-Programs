@@ -1,14 +1,15 @@
 package threads;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PrimeNumberGenerator implements Runnable
 {
 	private int start, end;
-	ArrayList<Integer> primeList;
+	List<Integer> primeList;
 	
 	
-	public PrimeNumberGenerator(int start, int end, ArrayList<Integer> primeList) {
+	public PrimeNumberGenerator(int start, int end, List<Integer> primeList) {
 		//super();
 		this.start = start;
 		this.end = end;
@@ -29,14 +30,18 @@ public class PrimeNumberGenerator implements Runnable
 		return true;
 	}
 	public void run() {
+		int pCount =0;
 		for(int n=start; n<=end; n++) {
-			if(isPrime(n)) //check n is prime or not
+			//check n is prime or not
+			if(isPrime(n)) {
 				//System.out.println(n+" is a prime");
 				primeList.add(n);
-			//else
-			//	System.out.println(n+" is not a prime");
+				pCount +=1;
+			}
 			
 		}
-		System.out.println("run() ends");
+		System.out.println("Prime from "+start+" to "+end+" are: "+pCount);
+		
+		System.out.println("run() ends: ");
 	}
 }

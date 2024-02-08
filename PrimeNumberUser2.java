@@ -1,12 +1,15 @@
 package threads;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
 
 public class PrimeNumberUser2 {
 
 	public static void main(String[] args) {
-		ArrayList<Integer> primeList ;
-		primeList = new ArrayList<Integer>();
+		List<Integer> primeList ;
+		//primeList = new ArrayList<Integer>();
+		primeList = new Vector<Integer>();
 		
 		//starting a thread using Runnable 
 		Runnable r1 = new PrimeNumberGenerator(101,500, primeList);
@@ -29,6 +32,7 @@ public class PrimeNumberUser2 {
 			e.printStackTrace();
 		}
 		System.out.println("Prime numbers:"+primeList);
+		System.out.println("Total Prime numbers:"+primeList.size());
 		System.out.println("main ends");
 	}
 
